@@ -64,6 +64,11 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     child: ReusableCard(
+                      onPress: () {
+                        setState(() {
+                          selectedGender = GenderType.MALE;
+                        });
+                      },
                       color: selectedGender == GenderType.MALE ? activeCardColor : inactiveCardColor,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.mars,
