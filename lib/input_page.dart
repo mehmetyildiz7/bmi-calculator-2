@@ -200,7 +200,12 @@ class _InputPageState extends State<InputPage> {
               Navigator.pushNamed(context, "/calc");
             },
             child: Container(
-              child: Text('CALCULATE'),
+              child: Center(
+                child: Text(
+                    'CALCULATE',
+                  style: kLargeButtonTextStyle,
+                ),
+              ),
               color: kBottomContainerColor,
               width: double.infinity,
               height: kBottomContainerHeight,
