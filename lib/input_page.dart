@@ -88,17 +88,17 @@ class _InputPageState extends State<InputPage> {
                         'cm',
                         style: kLabelTextStyle,
                       ),
-                      Slider(
-                        value: height.toDouble(),
-                        min: 120.0,
-                        max: 220.0,
-                        onChanged: (value) {
-                          setState(() {
-                            height = value.toInt();
-                          });
-                        },
-                      )
                     ],
+                  ),
+                  Slider(
+                    value: height.toDouble(),
+                    min: 120.0,
+                    max: 220.0,
+                    onChanged: (value) {
+                      setState(() {
+                        height = value.toInt();
+                      });
+                    },
                   )
                 ],
               ),
