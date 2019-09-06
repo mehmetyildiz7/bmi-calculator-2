@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
+import 'consts.dart';
 
-const double bottomContainerHeight = 80.0;
-const Color activeCardColor = Color(0xFF1D1e33);
-const Color bottomContainerColor = Color(0xFFEB1555);
-const Color inactiveCardColor = Color(0xFF111328);
+
 
 enum GenderType {
   MALE, FEMALE
@@ -18,31 +16,10 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
+  Color maleCardColor = kInactiveCardColor;
+  Color femaleCardColor = kInactiveCardColor;
 
   GenderType selectedGender;
-
-//  void updateColor (GenderType gender){
-//    if(gender == GenderType.MALE){
-//      if(maleCardColor == inactiveCardColor){
-//        maleCardColor = activeCardColor;
-//        femaleCardColor = inactiveCardColor;
-//      }
-//      else{
-//        maleCardColor = inactiveCardColor;
-//      }
-//    }
-//    else if(gender == GenderType.FEMALE){
-//      if(femaleCardColor == inactiveCardColor){
-//        femaleCardColor = activeCardColor;
-//        maleCardColor = inactiveCardColor;
-//      }
-//      else{
-//        femaleCardColor = inactiveCardColor;
-//      }
-//    }
-//  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +39,7 @@ class _InputPageState extends State<InputPage> {
                         selectedGender = GenderType.MALE;
                       });
                     },
-                    color: selectedGender == GenderType.MALE ? activeCardColor : inactiveCardColor,
+                    color: selectedGender == GenderType.MALE ? kActiveCardColor : kInactiveCardColor,
                     cardChild: IconContent(
                       icon: FontAwesomeIcons.mars,
                       label: 'MALE',
@@ -78,7 +55,7 @@ class _InputPageState extends State<InputPage> {
                       print('Female button clicked');
                     },
                     child: ReusableCard(
-                      color: selectedGender == GenderType.FEMALE ? activeCardColor : inactiveCardColor,
+                      color: selectedGender == GenderType.FEMALE ? kActiveCardColor : kInactiveCardColor,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
@@ -91,9 +68,10 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              color: activeCardColor,
+              color: kActiveCardColor,
               cardChild: Column(
-                children: <Widget>[Text('HEIGHT', style: TextStyle(fontSize: 18, color: Color(0xFF8D8E98)))],
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[Text('HEIGHT', style: kLabelTextStyle)],
               ),
             ),
           ),
@@ -102,21 +80,21 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
             margin: EdgeInsets.only(
               top: 10.0,
             ),
